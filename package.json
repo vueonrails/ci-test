@@ -1,0 +1,44 @@
+{
+  "name": "travis-ci-browser-stack",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "assets:precompile": "yarn install; rails assets:precompile",
+    "webpack-dev-server": "./bin/webpack-dev-server",
+    "rails server": "rails server",
+    "yarn install": "yarn install"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "vue"
+    ],
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/app/javascript/parts/$1"
+    },
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/", "/config/"
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/jest-serializer-vue"
+    ]
+  },
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "babel-jest": "^23.6.0",
+    "jest-serializer-vue": "^2.0.2",
+    "vue": "^2.5.17",
+    "vue-jest": "^3.0.0",
+    "vue-loader": "14.2.2",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.25",
+    "jest": "^23.6.0",
+    "webpack-dev-server": "2.11.2"
+  }
+}
