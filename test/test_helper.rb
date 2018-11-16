@@ -19,6 +19,7 @@ CONFIG['key'] = ENV['BROWSERSTACK_ACCESS_KEY'] || CONFIG['key']
 
 
 Capybara.register_driver :browserstack do |app|
+  Capybara.app_host = 'https://vueonrails-ci-staging.herokuapp.com:443'
   @caps = CONFIG['common_caps'].merge(CONFIG['browser_caps'][TASK_ID])
 
   # Code to start browserstack local before start of test
@@ -35,7 +36,7 @@ Capybara.register_driver :browserstack do |app|
   )
 end
 
-Capybara.default_driver = :browserstack
+# Capybara.default_driver = :browserstack
 
 # Code to stop browserstack local after end of test
 at_exit do
