@@ -1,0 +1,12 @@
+server: "hub-cloud.browserstack.com"
+common_caps:
+  "browserstack.debug": true
+browser_caps:
+  -
+    browser: firefox
+  -
+    browser: chrome
+  -
+    browser: safari
+  -
+    browser: internet explorer
