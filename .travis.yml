@@ -10,12 +10,19 @@ jobs:
   - name: Jest Unit Tests
     script: bin/yarn test
   - stage: deploy staging
-    deploy: &heroku
+    deploy:
       provider: heroku
       app: vueonrails-ci-staging
       api_key:
         secure: uSx09Ry6A8nPSHJG+333DPleYKv0ak5FGk5EFXZaj2pLDPfcsxLvizNI2M2DOGn42sYfWI+tX8/uksQogcHp5m0Vj4ohKN7bnM+fVBNqurV+pqjUaY8nbyi6/ABk9XiO1I4zy77kKY9eGMyY59QP8NRSDQXeQ2pS1OC8exjA3e4/jECh+sofPQH5vbKefRawuCzTJG/HvNX6+xtMK0Bq34+RleITT0K9EmtMNw6x63OK6zdKcoZhIqh9MfuyKv/3tf3YSilWKwxNO/Vzs8ZPohHHObarVKpVQaFesGJiM8O5Nb4/jgcfnOoCFTV/HBMpYOjBto/diXr9VttCbEIWkxa6fd/jzQ3d9Pfn96+wZy98ePNalhyK22vhYQbCubvXqPODAoQJr9UnZM8Qm2Z7pSSB4tIrITbNAAzhIH1jBIn3PpYHe8HqBQIV2O5ukHhOss2M4jYP9q4cIaxMx/OII/2Hn6qF10rOeib35HbmQOkR/xD5Gzfdfw9BIPdsRWnnqz2dxikm/TyisXeRQqvdGbarlSsPXoQBYgLMcZ1+XbVWJL0CbPJ2r1TtwV+Tw1zEkM0wR7ebWi6CefHXVCAJATC3DLvR2glSbJb70/Plo8jjH0rZ9V8OEEsaz+9Bb3IQNn1s4Zf0wJLmgJg5CsprWQCNedY+IC+ecZgNy47hB5c=
   - stage: test staging
-    name: Rails System Tests
-    script: bin/rails test:system
-    
+    name: firefox
+    script: TASK_ID=0 bin/rails test:system
+  - name: chrome
+    script: TASK_ID=1 bin/rails test:system
+  - name: safari
+    script: TASK_ID=2 bin/rails test:system
+  - name: internet explorer
+    script: TASK_ID=3 bin/rails test:system
+env:
+  secure: NN4vjO3QFr/BUyRgm/GjG+OTUGd1Gw1d7jM+V2j2cTJz5q8lGYAqf+K9Mq4uYrDCzXAXxc3pniZYi2cWX3BippJgQknSVfAh3Jtu8kor+tAXG68P0QevFRy50bk3Tmo7BzprbAxBvnx95lvUlUO95thzj6OGRUVq9ptGui7X/KcIVnG4AofyfviyvsaVm1yJv852DrL+f53pLlVFCK8tcWuplfcLG3imxVZlzqQM3jU5Bf3xVAOWVVKgolZ8qMCOyfKBp0pbcRjkjZtTZIFg0za/e5rqThs6kOzM+mGtbtStFz5rkjIO8bmiuRfsaPALAV2bubQ3u8tF65z+BwGdhra0Lgq0zvp8X33GqHTvbEdIvTeMFwq0QywLnMg+N+uJWph2hlRm3NXPJ2eGIem4RmBjvuBi/lBzvIqkV/yWSs3ouDT7VUBn0Z0hq95H/pswFBESd/3bYIMWhCkKKSXein4dgdheoRAHPGNitGgfmCv3MM9PzZ2yOBkACOjW9/C0knZUwkP8Xtx3fSEvLCVXeHKDkGT7Ma7vlsi8qOOHLV76m6cZSOBPwBMlGiGjyHOwKfzuPsFoC9DnsWCz89eVsgzWi7hreLDNrgj6U5sWnaYbRmSZpe/8LtUZQZnjVnPO2xm2UQ2ioopFQ3f12CLl/PvLhLG+HWex74Cqgx6vS2o=
