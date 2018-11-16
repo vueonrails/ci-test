@@ -13,7 +13,7 @@ jobs:
     deploy:
       provider: heroku
       app: vueonrails-ci-staging
-      run: "rake db:migrate"
+      run: "sleep 5 && bin/rails db:migrate"
       strategy: git
       api_key:
         secure: uSx09Ry6A8nPSHJG+333DPleYKv0ak5FGk5EFXZaj2pLDPfcsxLvizNI2M2DOGn42sYfWI+tX8/uksQogcHp5m0Vj4ohKN7bnM+fVBNqurV+pqjUaY8nbyi6/ABk9XiO1I4zy77kKY9eGMyY59QP8NRSDQXeQ2pS1OC8exjA3e4/jECh+sofPQH5vbKefRawuCzTJG/HvNX6+xtMK0Bq34+RleITT0K9EmtMNw6x63OK6zdKcoZhIqh9MfuyKv/3tf3YSilWKwxNO/Vzs8ZPohHHObarVKpVQaFesGJiM8O5Nb4/jgcfnOoCFTV/HBMpYOjBto/diXr9VttCbEIWkxa6fd/jzQ3d9Pfn96+wZy98ePNalhyK22vhYQbCubvXqPODAoQJr9UnZM8Qm2Z7pSSB4tIrITbNAAzhIH1jBIn3PpYHe8HqBQIV2O5ukHhOss2M4jYP9q4cIaxMx/OII/2Hn6qF10rOeib35HbmQOkR/xD5Gzfdfw9BIPdsRWnnqz2dxikm/TyisXeRQqvdGbarlSsPXoQBYgLMcZ1+XbVWJL0CbPJ2r1TtwV+Tw1zEkM0wR7ebWi6CefHXVCAJATC3DLvR2glSbJb70/Plo8jjH0rZ9V8OEEsaz+9Bb3IQNn1s4Zf0wJLmgJg5CsprWQCNedY+IC+ecZgNy47hB5c=
